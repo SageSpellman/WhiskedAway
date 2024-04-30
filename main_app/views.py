@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect, requests
+from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Recipe 
+from .models import Recipe
+import requests, os
 
 @login_required
 def logout_view(request):
@@ -12,26 +12,12 @@ def logout_view(request):
 def home(request):
     return render(request, 'home.html')
 
-class RecipeListView(ListView):
+def recipes(request): 
+    url = "https://the-vegan-recipes-db.p.rapidapi.com/"
 
-    model = Recipe
-    template_name = 'recipe_list.html'
-
-class RecipeDetailView(DetailView):
-    model = Recipe
-    template_name = 'recipe_detail.html'
-
-class RecipeCreateView(CreateView):
-    model = Recipe
-    template_name = 'recipe_form.html'
-    fields = ['title', 'ingredients', 'instructions']
-
-class RecipeUpdateView(UpdateView):
-    model = Recipe
-    template_name = 'recipe_form.html'
-    fields = ['title', 'ingredients', 'instructions']
-
-class RecipeDeleteView(DeleteView):
-    model = Recipe
-    template_name = 'recipe_confirm_delete.html'
-    success_url = '/recipes/'
+    headers = {
+	"X-RapidAPI-Host": "the-vegan-recipes-db.p.rapidapi.com"
+}
+    response = requests.get(url, headers=headers)
+    response = response.json()
+    return render(request, 'recipes/index.html', {'recipes':response})
