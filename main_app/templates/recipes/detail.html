@@ -18,9 +18,13 @@
 
         <p> Description: {{ recipe.description }}</p>
 
-        <p> Ingredients: {{ recipe.ingredients }}</p>
+        {% for ingredient in recipe.ingredients %}
+       <p>Ingredient: {{ ingredient }}</p>
+        {% endfor %}
 
-        <p>Steps: {{ recipe.method }}</p>
+        {% for step in recipe.method %}
+        <p>{{ step }}</p>
+         {% endfor %}
       </div>
       <div>
 
