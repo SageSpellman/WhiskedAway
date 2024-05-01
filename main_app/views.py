@@ -36,9 +36,9 @@ def recipes_detail(request, recipe_id):
     return render(request, 'recipes/detail.html', {'recipe':response})
 
 def add_favorite(request, recipe_id):
-    favorite = Favorite( recipe=recipe_id)
+    favorite = Favorite(recipe=recipe_id)
     favorite.save()
-    return redirect('favorites')
+    return redirect('favorites_index')
 
 class FavoriteList(ListView):
     model = Favorite
