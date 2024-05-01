@@ -16,8 +16,20 @@ def recipes(request):
     url = "https://the-vegan-recipes-db.p.rapidapi.com/"
 
     headers = {
+	"X-RapidAPI-Key": os.getenv('API_KEY'),
 	"X-RapidAPI-Host": "the-vegan-recipes-db.p.rapidapi.com"
 }
     response = requests.get(url, headers=headers)
     response = response.json()
     return render(request, 'recipes/index.html', {'recipes':response})
+
+def recipes_detail(request, recipe_id):
+    url = f"https://the-vegan-recipes-db.p.rapidapi.com/{recipe_id}"
+
+    headers = {
+	"X-RapidAPI-Key": os.getenv('API_KEY'),
+	"X-RapidAPI-Host": "the-vegan-recipes-db.p.rapidapi.com"
+}
+    response = requests.get(url, headers=headers)
+    response = response.json()
+    return render(request, 'recipes/detail.html', {'recipe':response})

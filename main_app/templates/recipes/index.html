@@ -2,11 +2,14 @@
 {% block content %}
 
 <h1>Recipes</h1>
+
 <ul>
     {% for recipe in recipes %}
+    <a href="{% url 'detail' recipe.id %}">
         <li>{{ recipe.title }}</li>
         <li>{{ recipe.image }}</li>
         <li>{{ recipe.difficulty }}</li>
+    </a>
     {% endfor %}
 </ul>
 
