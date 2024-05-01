@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Favorites</h1>
+    <ul>
+    {% for favorite in favorites %}
+        <li>{{ favorite.recipe.title }} - 
+            <a href="{% url 'remove_favorite' favorite.id %}">Remove</a> 
+            - <a href="{% url 'edit_favorite' favorite.id %}">Edit</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
