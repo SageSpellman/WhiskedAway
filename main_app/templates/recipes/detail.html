@@ -25,6 +25,9 @@
         {% for step in recipe.method %}
         <p>{{ step }}</p>
          {% endfor %}
+
+         <a href="{% url 'add_favorite' recipe.id %}">Add to Favorites</a>
+         
       </div>
       <div>
 
