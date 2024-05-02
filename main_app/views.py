@@ -39,6 +39,7 @@ def add_recipes(request):
     title = request.POST.get('title')
     if title:
         recipe = Recipe(
+            user=request.user,
             title=title,
             difficulty=request.POST.get('difficulty'),
             portion=request.POST.get('portion'),
@@ -48,4 +49,5 @@ def add_recipes(request):
             instructions=request.POST.get('instructions'),
         )
         recipe.save()
+        add_recipes = Recipe.object.get(recipe_id='')
     return render(request, 'main_app/add_recipes.html')
