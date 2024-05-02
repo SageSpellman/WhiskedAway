@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<title>Review Detail</title>
+
+    <h1>{{ review.recipe_name }}</h1>
+    <p>Rating: {{ review.rating }}</p>
+    <p>Review: {{ reviews.review }}</p>
+    <p>Posted by: {{ review.user.username }}</p>
+    <p>Posted at: {{ review.created_at }}</p>
+
+    <a href="{% url 'reviews_update' object.recipe_name %}">Edit</a>
+    <a href="{% url 'reviews_delete' object.recipe_name %}">Delete</a>
+
+{% endblock %}

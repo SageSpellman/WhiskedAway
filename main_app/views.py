@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from django.views.generic import UpdateView, DeleteView
+from django.views.generic import UpdateView, DeleteView, CreateView, ListView, DetailView
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-from .models import Recipe
+from .models import Recipe, Review
 import requests, os
 
 @login_required
@@ -61,3 +61,29 @@ class RecipeUpdate(UpdateView):
 class RecipeDelete(DeleteView):
   model = Recipe
   success_url = '/recipes'
+
+class ReviewList(ListView):
+    model = Review
+    template_name = 'review_list.html'  
+
+class ReviewDetail(DetailView):
+    model = Review
+    template_name = 'review_detail.html' 
+
+class ReviewCreate(CreateView):
+    model = Review
+    fields = ['recipe_name', 'rating', 'review']
+    template_name = 'main_app/review_form.html' 
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class ReviewUpdate(UpdateView):
+    model = Review
+    fields = ['recipe_name', 'rating', 'review']
+    template_name = 'main_app/review_form.html' 
+
+class ReviewDelete(DeleteView):
+    model = Review
+    success_url = '/reviews/'
