@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-from .models import Recipe, Favorite
+from .models import Recipe
 import requests, os
 
 @login_required
@@ -35,13 +35,17 @@ def recipes_detail(request, recipe_id):
     response = response.json()
     return render(request, 'recipes/detail.html', {'recipe':response})
 
-def add_favorite(request, recipe_id):
-    favorite = Favorite(recipe=recipe_id)
-    favorite.save()
-    return redirect('favorites_index')
-
-class FavoriteList(ListView):
-    model = Favorite
-
-class FavoriteDetail(DetailView):
-    model = Favorite
+def add_recipes(request):
+    title = request.POST.get('title')
+    if title:
+        recipe = Recipe(
+            title=title,
+            difficulty=request.POST.get('difficulty'),
+            portion=request.POST.get('portion'),
+            time=request.POST.get('time'),
+            description=request.POST.get('description'),
+            ingredients=request.POST.get('ingredients'),
+            instructions=request.POST.get('instructions'),
+        )
+        recipe.save()
+    return render(request, 'main_app/add_recipes.html')

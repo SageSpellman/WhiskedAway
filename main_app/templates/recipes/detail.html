@@ -26,7 +26,19 @@
         <p>{{ step }}</p>
          {% endfor %}
 
-         <a href="{% url 'add_favorite' recipe.id %}">Add to Favorites</a>
+        <fomr action="" method="POST">
+          {% csrf_token %}
+         
+          <input type="hidden" value="{{recipe.title}}" name="title">
+          <input type="hidden" value="{{recipe.difficulty}}" name="difficulty">
+          <input type="hidden" value="{{recipe.portion}}" name="portion">
+          <input type="hidden" value="{{recipe.time}}" name="time">
+          <input type="hidden" value="{{recipe.description}}" name="description">
+          <input type="hidden" value="{{recipe.ingredients}}" name="ingredients">
+          <input type="hidden" value="{{recipe.method}}" name="instructions">
+          <input type="submit" value="hidden" class="btn" formaction="{% url 'add_recipes' %}">
+        </form>
+         <a href="{% url 'add_recipes' %}">Add to Favorites</a>
          
       </div>
       <div>

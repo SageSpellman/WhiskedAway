@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Favorites</h1>
+    <ul>
+        {% for recipe in recipes %}
+        <a href="{% url 'detail' recipe.id %}">
+            <li>{{ recipe.title }}</li>
+            <li>{{ recipe.difficulty }}</li>
+            <li>{{ recipe.portion }}</li>
+            <li>{{ recipe.time }}</li>
+            <li>{{ recipe.description }}</li>
+        </a>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}
