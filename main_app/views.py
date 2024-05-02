@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
+from django.views.generic import UpdateView, DeleteView
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from .models import Recipe
@@ -36,18 +36,28 @@ def recipes_detail(request, recipe_id):
     return render(request, 'recipes/detail.html', {'recipe':response})
 
 def add_recipes(request):
-    title = request.POST.get('title')
-    if title:
-        recipe = Recipe(
-            user=request.user,
-            title=title,
-            difficulty=request.POST.get('difficulty'),
-            portion=request.POST.get('portion'),
-            time=request.POST.get('time'),
-            description=request.POST.get('description'),
-            ingredients=request.POST.get('ingredients'),
-            instructions=request.POST.get('instructions'),
-        )
-        recipe.save()
-        recipes = request.user.recipe_set.all()
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        if title:
+            recipe = Recipe(
+                user=request.user,
+                title=title,
+                difficulty=request.POST.get('difficulty'),
+                portion=request.POST.get('portion'),
+                time=request.POST.get('time'),
+                description=request.POST.get('description'),
+                ingredients=request.POST.get('ingredients'),
+                instructions=request.POST.get('instructions'),
+            )
+            recipe.save()
+    recipes = request.user.recipe_set.all()
     return render(request, 'main_app/add_recipes.html', {'recipes':recipes})
+
+class RecipeUpdate(UpdateView):
+  model = Recipe
+  fields = ['ingredients', 'difficulty']
+  url = '/add_recipes/'
+
+class RecipeDelete(DeleteView):
+  model = Recipe
+  success_url = '/recipes'

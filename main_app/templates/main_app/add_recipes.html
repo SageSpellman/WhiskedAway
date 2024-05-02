@@ -1,16 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Favorites</h1>
-    <ul>
+
+<h1>Favorite Recipes</h1>
+
+<div class="row">
+  <div class="col s6">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ recipe.title }}</span>
         {% for recipe in recipes %}
-        <a href="{% url 'detail' recipe.id %}">
-            <li>{{ recipe.title }}</li>
-            <li>{{ recipe.difficulty }}</li>
-            <li>{{ recipe.portion }}</li>
-            <li>{{ recipe.time }}</li>
-            <li>{{ recipe.description }}</li>
-        </a>
+        <p>Recipe: {{ recipe.title }}</p>
+        <p>Difficulty: {{ recipe.difficulty }}</p>
+        <p>Portions: {{ recipe.portion }}</p>
+        <p>Cook Time: {{ recipe.time }}</p>
+        <p>Description: {{ recipe.description }}</p>
+       </div>
+      <div class="card-action">
+        <a href="{% url 'recipes_update' recipe.id %}">Edit</a>
+        <a href="{% url 'recipes_delete' recipe.id %}">Delete</a>
         {% endfor %}
-    </ul>
-    
-{% endblock %}
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
