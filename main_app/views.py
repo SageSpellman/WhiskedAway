@@ -49,5 +49,5 @@ def add_recipes(request):
             instructions=request.POST.get('instructions'),
         )
         recipe.save()
-        add_recipes = Recipe.object.get(recipe_id='')
-    return render(request, 'main_app/add_recipes.html')
+        recipes = request.user.recipe_set.all()
+    return render(request, 'main_app/add_recipes.html', {'recipes':recipes})
