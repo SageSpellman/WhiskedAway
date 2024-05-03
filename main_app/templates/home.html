@@ -1,14 +1,15 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <div class="welcome-card">
-    <h1>Welcome to Whisked Away!</h1>
-    <p>Explore delicious Vegan recipes from around the world and start cooking!</p>
-    <a href="{% url 'recipes' %}" class="btn">Get Started</a>
+  <h1>Welcome to Whisked Away!</h1>
+  <p>
+    Explore delicious Vegan recipes from around the world and start cooking!
+  </p>
+  <a href="{% url 'recipes' %}" class="btn">Get Started</a>
 </div>
 <style>
-.welcome-card {
-    background-color: #4CAF50; /* Green background color */
+  .welcome-card {
+    background-color: #4caf50; /* Green background color */
     color: white; /* Text color */
     padding: 20px; /* Padding around content */
     border-radius: 5px; /* Rounded corners */

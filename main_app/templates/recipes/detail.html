@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <h1>Recipe Details</h1>
 
@@ -7,7 +6,6 @@
   <div class="col s6">
     <div class="card">
       <div class="card-content">
-
         <h2>{{ recipe.title }}</h2>
 
         <p>Difficulty : {{ recipe.difficulty }}</p>
@@ -16,70 +14,81 @@
 
         <p>Time : {{ recipe.time }}</p>
 
-        <p> Description: {{ recipe.description }}</p>
+        <p>Description: {{ recipe.description }}</p>
 
         {% for ingredient in recipe.ingredients %}
-       <p>Ingredient: {{ ingredient }}</p>
-        {% endfor %}
-
-        {% for step in recipe.method %}
+        <p>Ingredient: {{ ingredient }}</p>
+        {% endfor %} {% for step in recipe.method %}
         <p>{{ step }}</p>
-         {% endfor %}
+        {% endfor %}
 
         <form action="" method="POST">
           {% csrf_token %}
-         
-          <input type="hidden" value="{{recipe.title}}" name="title">
-          <input type="hidden" value="{{recipe.difficulty}}" name="difficulty">
-          <input type="hidden" value="{{recipe.portion}}" name="portion">
-          <input type="hidden" value="{{recipe.time}}" name="time">
-          <input type="hidden" value="{{recipe.description}}" name="description">
-          <input type="hidden" value="{{recipe.ingredients}}" name="ingredients">
-          <input type="hidden" value="{{recipe.method}}" name="instructions">
-          <input type="hidden" value="{{recipe.id}}" name="recipe_id">
-          <input type="submit" value="add recipe" class="btn" formaction="{% url 'add_recipes' %}">
+
+          <input type="hidden" value="{{recipe.title}}" name="title" />
+          <input
+            type="hidden"
+            value="{{recipe.difficulty}}"
+            name="difficulty"
+          />
+          <input type="hidden" value="{{recipe.portion}}" name="portion" />
+          <input type="hidden" value="{{recipe.time}}" name="time" />
+          <input
+            type="hidden"
+            value="{{recipe.description}}"
+            name="description"
+          />
+          <input
+            type="hidden"
+            value="{{recipe.ingredients}}"
+            name="ingredients"
+          />
+          <input type="hidden" value="{{recipe.method}}" name="instructions" />
+          <input type="hidden" value="{{recipe.id}}" name="recipe_id" />
+          <input
+            type="submit"
+            value="add recipe"
+            class="btn"
+            formaction="{% url 'add_recipes' %}"
+          />
         </form>
-
-         
       </div>
-      <div>
-
-      </div>
+      <div></div>
     </div>
   </div>
 
+  <style>
+    .center {
+      display: center;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Adjust height as needed */
+    }
 
-<style>
-  .center {
-    display: center;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Adjust height as needed */
-  }
+    .card {
+      max-width: 600px;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
 
-  .card {
-    max-width: 600px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-  }
+    .card-content {
+      text-align: center;
+    }
 
-  .card-content {
-    text-align: center;
-  }
+    .card-content p + p {
+      margin-top: 30px; /* Adjust spacing as needed */
+    }
 
-  .card-content p + p {
-    margin-top: 30px; /* Adjust spacing as needed */
-  }
+    .card-content p {
+      margin-bottom: 20px;
+    }
 
-  .card-content p {
-    margin-bottom: 20px;
-  }
-
-  .btn {
-    margin-top: 20px;
-  }
-</style>
+    .btn {
+      margin-top: 20px;
+    }
+  </style>
 
   {% endblock %}
+</div>

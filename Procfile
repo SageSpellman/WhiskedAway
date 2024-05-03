@@ -1,1 +1,1 @@
-web: gunicorn <WhiskedAway>.wsgi
+web: gunicorn WhiskedAway.wsgi
