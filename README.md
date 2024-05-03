@@ -1,5 +1,5 @@
 # Whisked Away
-[Click To Play]()
+[Click To View Yummy Vegan Recipes]()
 
 
 # Description 
@@ -11,20 +11,30 @@ Moreover, the app features a review section where users can read reviews from ot
 With Whisked Away, exploring and sharing delicious vegan recipes has never been easier!
 
 
-# Screenshots Of Game
+# Screenshots Of Website
 
 <img
     
     
     
 # Languages Used
-
+- Python
+- CSS
+- PostGresSQL
+- Django
 
 # Technologies Used
-
+- Neon
+- Bootstrap
+- VScode
+- Django Env
 
 
 # Next Steps
 
-- [:x:] 
+- [:x:] Shopping list tab for users to add ingredients from recipes to their shopping list
+- [:x:] Allow users to add recipes and view recipes from other users
+- [:x:] Allow Users to add and request friends with other users
+- [:x:] A chat where users can talk to each other
+- [:x:] Allowing users to make blog posts and comment and like each users posts
 
