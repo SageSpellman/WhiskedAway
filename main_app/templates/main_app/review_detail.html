@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<title>Review Detail</title>
-
+<div class="centered-card">
     <h1>{{ review.recipe_name }}</h1>
     <p>Rating: {{ review.rating }}</p>
-    <p>Review: {{ reviews.review }}</p>
+    <p>Review: {{ object.review }}</p>
     <p>Posted by: {{ review.user.username }}</p>
     <p>Posted at: {{ review.created_at }}</p>
 
     <a href="{% url 'reviews_update' object.id %}">Edit</a>
     <a href="{% url 'reviews_delete' object.id %}">Delete</a>
+</div>
 
 {% endblock %}

@@ -3,15 +3,18 @@
 
 <h1>Recipes</h1>
 <div class="card-container">
-<ul>
-    {% for recipe in recipes %}
-    <div class="card">
-    <a href="{% url 'detail' recipe.id %}">
-        <li>{{ recipe.title }}</li>
-        <li>{{ recipe.difficulty }}</li>
-    </a>
+    <div class="row">
+        {% for recipe in recipes %}
+        <div class="column">
+            <div class="card">
+                <a href="{% url 'detail' recipe.id %}">
+                    <h3>{{ recipe.title }}</h3>
+                    <p>Difficulty: {{ recipe.difficulty }}</p>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
-    {% endfor %}
-</ul>
-</div>
+
 {% endblock %}

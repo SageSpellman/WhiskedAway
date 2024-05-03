@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Home</h1>
+<div class="welcome-card">
+    <h1>Welcome to Whisked Away!</h1>
+    <p>Explore delicious Vegan recipes from around the world and start cooking!</p>
+    <a href="{% url 'recipes' %}" class="btn">Get Started</a>
+</div>
+<style>
+.welcome-card {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* Text color */
+    padding: 20px; /* Padding around content */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    text-align: center; /* Center align text */
+    max-width: 400px; /* Maximum width of the card */
+    margin: 0 auto; /* Center the card horizontally */
+  }
+</style>
 
 {% endblock %}

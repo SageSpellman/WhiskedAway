@@ -4,23 +4,24 @@
 <h1>Favorite Recipes</h1>
 
 <div class="row">
+  {% for recipe in recipes %}
   <div class="col">
     <div class="card">
       <div class="card-content">
-        <span class="card-title">{{ recipe.title }}</span>
-        {% for recipe in recipes %}
-        <p>Recipe: {{ recipe.title }}</p>
+        <span class="card-title"><a href="{% url 'detail' recipe.recipe_id %}">{{ recipe.title }}</a></span>
         <p>Difficulty: {{ recipe.difficulty }}</p>
         <p>Portions: {{ recipe.portion }}</p>
         <p>Cook Time: {{ recipe.time }}</p>
         <p>Description: {{ recipe.description }}</p>
-       </div>
+      </div>
       <div class="card-action">
         <a href="{% url 'recipes_update' recipe.id %}">Edit</a>
         <a href="{% url 'recipes_delete' recipe.id %}">Delete</a>
-        {% endfor %}
       </div>
     </div>
   </div>
+  {% endfor %}
+</div>
 
-  {% endblock %}
+
+{% endblock %}

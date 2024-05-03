@@ -11,6 +11,7 @@ class Recipe(models.Model):
     description = models.TextField()
     ingredients = models.TextField()
     instructions = models.TextField()
+    recipe_id = models.IntegerField(default='51')
 
     def __str__(self):
         return self.title

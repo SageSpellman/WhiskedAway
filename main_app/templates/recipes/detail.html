@@ -36,6 +36,7 @@
           <input type="hidden" value="{{recipe.description}}" name="description">
           <input type="hidden" value="{{recipe.ingredients}}" name="ingredients">
           <input type="hidden" value="{{recipe.method}}" name="instructions">
+          <input type="hidden" value="{{recipe.id}}" name="recipe_id">
           <input type="submit" value="add recipe" class="btn" formaction="{% url 'add_recipes' %}">
         </form>
 
@@ -46,5 +47,39 @@
       </div>
     </div>
   </div>
+
+
+<style>
+  .center {
+    display: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust height as needed */
+  }
+
+  .card {
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+
+  .card-content {
+    text-align: center;
+  }
+
+  .card-content p + p {
+    margin-top: 30px; /* Adjust spacing as needed */
+  }
+
+  .card-content p {
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    margin-top: 20px;
+  }
+</style>
 
   {% endblock %}

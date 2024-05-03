@@ -64,6 +64,7 @@ def add_recipes(request):
                 description=request.POST.get('description'),
                 ingredients=request.POST.get('ingredients'),
                 instructions=request.POST.get('instructions'),
+                recipe_id = request.POST.get('recipe_id')
             )
             recipe.save()
     recipes = request.user.recipe_set.all()
