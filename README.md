@@ -23,7 +23,7 @@ With Whisked Away, exploring and sharing delicious vegan recipes has never been 
 
 ![screenshot](Screenshot 2024-05-03 at 12.58.23 PM.png)
 
-![screenshot](Screenshot 2024-05-03 at 12.58.02 PM.png)
+![screenshot](Website Photos/Screenshot 2024-05-03 at 12.58.02 PM.png)
 
 ![screenshot]()
     
