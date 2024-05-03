@@ -1,11 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<style>
+    .card {
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 200px;
+        text-align: center;
+        display: inline-block; 
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
+
 <h1>Reviews</h1>
-    <ul>
-        {% for review in object_list %}
-            <li><a href="{% url 'reviews_detail' review.id %}">{{ review.recipe_name }}</a></li>
-        {% endfor %}
-    </ul>
+
+<div class="clearfix">
+    {% for review in object_list %}
+    <div class="card">
+        <a href="{% url 'reviews_detail' review.id %}">{{ review.recipe_name }}</a>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
