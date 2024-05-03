@@ -13,19 +13,29 @@ With Whisked Away, exploring and sharing delicious vegan recipes has never been 
 
 # Screenshots Of Website
 
-![screenshot](Screenshot 2024-05-03 at 12.56.00 PM.png)
+<img
+    src="https://github.com/SageSpellman/WhiskedAway/blob/main/Website%20Photos/Screenshot%202024-05-03%20at%2012.56.00%E2%80%AFPM.png"
+    width="700"/>
 
-![screenshot](Screenshot 2024-05-03 at 12.56.37 PM.png)
+<img
+    src="https://github.com/SageSpellman/WhiskedAway/blob/main/Website%20Photos/Screenshot%202024-05-03%20at%2012.56.37%E2%80%AFPM.png"
+    width="700"/>
 
-![screenshot](Screenshot 2024-05-03 at 12.57.04 PM.png)
+<img
+    src="https://github.com/SageSpellman/WhiskedAway/blob/main/Website%20Photos/Screenshot%202024-05-03%20at%2012.57.04%E2%80%AFPM.png"
+    width="700"/>
 
-![screenshot](Screenshot 2024-05-03 at 12.57.38 PM.png)
+<img
+    src="https://github.com/SageSpellman/WhiskedAway/blob/main/Website%20Photos/Screenshot%202024-05-03%20at%2012.57.38%E2%80%AFPM.png"
+    width="700"/>
 
-![screenshot](Screenshot 2024-05-03 at 12.58.23 PM.png)
+<img
+    src="https://github.com/SageSpellman/WhiskedAway/blob/main/Website%20Photos/Screenshot%202024-05-03%20at%2012.58.23%E2%80%AFPM.png"
+    width="700"/>
 
-![screenshot](Website Photos/Screenshot 2024-05-03 at 12.58.02 PM.png)
-
-![screenshot]()
+<img
+    src="https://github.com/SageSpellman/WhiskedAway/blob/main/Website%20Photos/Screenshot%202024-05-03%20at%2012.58.02%E2%80%AFPM.png"
+    width="700"/>
     
     
     
