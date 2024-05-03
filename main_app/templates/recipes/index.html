@@ -2,13 +2,15 @@
 {% block content %}
 
 <h1>Recipes</h1>
-<div class="card">
+<div class="card-container">
 <ul>
     {% for recipe in recipes %}
+    <div class="card">
     <a href="{% url 'detail' recipe.id %}">
         <li>{{ recipe.title }}</li>
         <li>{{ recipe.difficulty }}</li>
     </a>
+</div>
     {% endfor %}
 </ul>
 </div>

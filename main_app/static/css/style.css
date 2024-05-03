@@ -12,7 +12,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     transition: box-shadow 0.3s ease;
 }
 
-.card :hover {
+.card:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -36,6 +36,34 @@ nav > a:hover:not(.active) {
     cursor: pointer;
   }
 
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+}
 
+ form input{
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #259663;
+    color: #247445;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+form button[type="submit"]:hover {
+    background-color: #236243;
+}
 
 

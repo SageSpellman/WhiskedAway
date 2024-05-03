@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic import UpdateView, DeleteView, CreateView, ListView, DetailView
 from django.contrib.auth import logout
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import Recipe, Review
 import requests, os
@@ -9,6 +11,20 @@ import requests, os
 def logout_view(request):
     logout(request)
     return redirect('home')
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      user = form.save()
+      login(request, user)
+      return redirect('home')
+    else:
+      error_message = 'Invalid sign up - try again'
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
 
 def home(request):
     return render(request, 'home.html')
@@ -64,16 +80,15 @@ class RecipeDelete(DeleteView):
 
 class ReviewList(ListView):
     model = Review
-    template_name = 'review_list.html'  
+    template_name = 'main_app/review_list.html'  
 
 class ReviewDetail(DetailView):
     model = Review
-    template_name = 'review_detail.html' 
+    template_name = 'main_app/review_detail.html' 
 
 class ReviewCreate(CreateView):
     model = Review
     fields = ['recipe_name', 'rating', 'review']
-    template_name = 'main_app/review_form.html' 
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -81,9 +96,9 @@ class ReviewCreate(CreateView):
 
 class ReviewUpdate(UpdateView):
     model = Review
-    fields = ['recipe_name', 'rating', 'review']
+    fields = ['rating', 'review']
     template_name = 'main_app/review_form.html' 
 
 class ReviewDelete(DeleteView):
     model = Review
-    success_url = '/reviews/'
+    success_url = '/reviews'
